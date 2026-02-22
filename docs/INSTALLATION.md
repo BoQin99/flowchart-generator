@@ -45,16 +45,15 @@ claude --version
 
 ### 什么是 MCP draw.io 服务器？
 
-MCP (Model Context Protocol) draw.io 服务器是 [Anthropic](https://www.anthropic.com/) 官方提供的 MCP 服务器实现，它封装了 [draw.io](https://www.drawio.com/) 流程图工具，允许 Claude Code 通过 MCP 协议创建、编辑和管理流程图。
+MCP (Model Context Protocol) draw.io 服务器是一个开源的 MCP 服务器实现，它封装了 [draw.io](https://www.drawio.com/) 流程图工具，允许 Claude Code 通过 MCP 协议创建、编辑和管理流程图。
 
 **MCP draw.io 服务器信息：**
 
 | 项目 | 信息 |
 |------|------|
-| **包名** | `@modelcontextprotocol/server-drawio` |
-| **作者/维护者** | Anthropic |
-| **仓库地址** | https://github.com/modelcontextprotocol/servers |
-| **开源协议** | MIT |
+| **项目名** | next-ai-draw-io |
+| **作者/维护者** | [DayuanJiang](https://github.com/DayuanJiang) |
+| **仓库地址** | https://github.com/DayuanJiang/next-ai-draw-io |
 | **功能** | 在浏览器中打开 draw.io 编辑器，支持创建、编辑和导出流程图 |
 
 ### MCP draw.io 服务器提供的工具
@@ -95,40 +94,35 @@ npm --version   # 应该显示 9.0 或更高版本
 
 ### 安装 MCP draw.io 服务器
 
-有两种安装方式：
-
-#### 方式 A：使用 npx（推荐）
-
-使用 `npx` 可以直接运行 npm 包，无需预先安装。这是推荐的方式，因为它：
-
-- 不需要全局安装
-- 自动使用最新版本
-- 不会污染全局 npm 模块
-
-**验证 npx 可用：**
-```bash
-npx --version
-```
-
-**测试 MCP 服务器（可选）：**
-```bash
-npx -y @modelcontextprotocol/server-drawio
-```
-- `-y` 参数表示自动确认安装
-- 如果成功，会看到 MCP 服务器的启动信息
-
-#### 方式 B：全局安装
-
-如果你希望全局安装以便其他项目使用：
+**步骤 1：克隆仓库**
 
 ```bash
-npm install -g @modelcontextprotocol/server-drawio
+# 克隆 MCP draw.io 服务器仓库
+git clone https://github.com/DayuanJiang/next-ai-draw-io.git
+
+# 进入目录
+cd next-ai-draw-io
 ```
 
-**验证安装：**
+**步骤 2：安装依赖**
+
 ```bash
-npm list -g @modelcontextprotocol/server-drawio
+# 安装项目依赖
+npm install
 ```
+
+**步骤 3：启动 MCP 服务器**
+
+```bash
+# 开发模式启动（推荐用于调试）
+npm run dev
+
+# 或先构建再启动（生产模式）
+npm run build
+npm start
+```
+
+启动后，MCP 服务器会监听标准输入输出，等待 Claude Desktop 的连接。
 
 ---
 
@@ -157,14 +151,27 @@ Claude Desktop 的配置文件位于：
 
 使用你喜欢的文本编辑器打开配置文件（如果文件不存在，创建它）。
 
-然后添加或更新 MCP 服务器配置：
+然后添加 MCP 服务器配置（将路径替换为你的实际路径）：
 
+**macOS 示例：**
 ```json
 {
   "mcpServers": {
     "drawio": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-drawio"]
+      "command": "node",
+      "args": ["/Users/your-username/next-ai-draw-io/dist/index.js"]
+    }
+  }
+}
+```
+
+**Windows 示例：**
+```json
+{
+  "mcpServers": {
+    "drawio": {
+      "command": "node",
+      "args": ["C:\\Users\\your-username\\next-ai-draw-io\\dist\\index.js"]
     }
   }
 }
@@ -175,20 +182,10 @@ Claude Desktop 的配置文件位于：
 | 字段 | 值 | 说明 |
 |------|-----|------|
 | `"drawio"` | - | MCP 服务器的名称，skill 通过 `mcp__drawio__*` 调用 |
-| `"command"` | `"npx"` | 运行命令，使用 npx 运行 npm 包 |
-| `"args"` | `["-y", "@modelcontextprotocol/server-drawio"]` | 传递给命令的参数 |
+| `"command"` | `"node"` | 使用 Node.js 运行 |
+| `"args"` | 路径数组 | `next-ai-draw-io/dist/index.js` 的绝对路径 |
 
-**如果你使用了全局安装（方式 B），配置如下：**
-
-```json
-{
-  "mcpServers": {
-    "drawio": {
-      "command": "mcp-server-drawio"
-    }
-  }
-}
-```
+**重要：** 请将路径替换为你实际克隆的 `next-ai-draw-io` 仓库中 `dist/index.js` 文件的绝对路径。
 
 ### 验证配置文件格式
 
@@ -561,7 +558,7 @@ Remove-Item -Recurse -Force "$env:USERPROFILE\.claude\skills\flowchart-generator
 |------|------|
 | Claude Code | https://claude.ai/code |
 | MCP 协议 | https://modelcontextprotocol.io/ |
-| MCP Servers 仓库 | https://github.com/modelcontextprotocol/servers |
+| MCP draw.io 服务器仓库 | https://github.com/DayuanJiang/next-ai-draw-io |
 | draw.io 官网 | https://www.drawio.com/ |
 
 ---

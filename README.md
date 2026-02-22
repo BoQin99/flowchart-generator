@@ -20,10 +20,10 @@
 
 | 项目 | 信息 |
 |------|------|
-| **包名** | `@modelcontextprotocol/server-drawio` |
-| **作者** | [Anthropic](https://www.anthropic.com/) |
-| **仓库** | [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) |
-| **说明** | 官方 MCP 服务器集合，包含 draw.io 集成 |
+| **项目名** | next-ai-draw-io |
+| **作者** | [DayuanJiang](https://github.com/DayuanJiang) |
+| **仓库** | [DayuanJiang/next-ai-draw-io](https://github.com/DayuanJiang/next-ai-draw-io) |
+| **说明** | MCP draw.io 服务器，提供流程图编辑功能 |
 
 ### MCP draw.io 服务器功能
 
@@ -404,7 +404,7 @@ MIT License
 
 - [Claude Code](https://claude.ai/code) - AI 编程助手
 - [draw.io](https://www.drawio.com/) - 开源流程图工具
-- [Anthropic MCP Servers](https://github.com/modelcontextprotocol/servers) - MCP 服务器实现
+- [next-ai-draw-io](https://github.com/DayuanJiang/next-ai-draw-io) - MCP draw.io 服务器实现，作者 [DayuanJiang](https://github.com/DayuanJiang)
 
 ---
 
