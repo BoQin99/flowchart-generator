@@ -139,10 +139,10 @@ npm install -g @modelcontextprotocol/server-drawio
 
 ```bash
 # 克隆仓库
-git clone https://github.com/BoQin99/flowchart-generator-QB.git
+git clone https://github.com/BoQin99/flowchart-generator.git
 
 # 进入目录
-cd flowchart-generator-QB
+cd flowchart-generator
 ```
 
 ### 步骤 2：复制 Skill 文件

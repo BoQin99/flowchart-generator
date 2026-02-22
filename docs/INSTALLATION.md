@@ -224,25 +224,25 @@ cat ~/Library/Application\ Support/Claude/claude_desktop_config.json | jq .
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/BoQin99/flowchart-generator-QB.git
+git clone https://github.com/BoQin99/flowchart-generator.git
 
 # 2. 进入目录
-cd flowchart-generator-QB
+cd flowchart-generator
 
 # 3. 创建 skills 目录（如果不存在）
 mkdir -p ~/.claude/skills
 
 # 4. 复制 skill
-cp -r flowchart-generator-QB ~/.claude/skills/
+cp -r flowchart-generator ~/.claude/skills/
 ```
 
 **Windows PowerShell:**
 ```powershell
 # 1. 克隆仓库
-git clone https://github.com/BoQin99/flowchart-generator-QB.git
+git clone https://github.com/BoQin99/flowchart-generator.git
 
 # 2. 进入目录
-cd flowchart-generator-QB
+cd flowchart-generator
 
 # 3. 创建 skills 目录
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.claude\skills"
@@ -253,7 +253,7 @@ Copy-Item -Recurse -Force . "$env:USERPROFILE\.claude\skills\flowchart-generator
 
 ### 方式 B：手动下载
 
-1. 访问 [GitHub 仓库](https://github.com/BoQin99/flowchart-generator-QB)
+1. 访问 [GitHub 仓库](https://github.com/BoQin99/flowchart-generator)
 2. 点击 "Code" → "Download ZIP"
 3. 解压到临时目录
 4. 将解压后的内容复制到 `~/.claude/skills/flowchart-generator/`
@@ -266,11 +266,11 @@ Copy-Item -Recurse -Force . "$env:USERPROFILE\.claude\skills\flowchart-generator
 # macOS/Linux
 mkdir -p ~/.claude/skills/flowchart-generator
 curl -o ~/.claude/skills/flowchart-generator/SKILL.md \
-  https://raw.githubusercontent.com/BoQin99/flowchart-generator-QB/main/SKILL.md
+  https://raw.githubusercontent.com/BoQin99/flowchart-generator/main/SKILL.md
 
 # Windows PowerShell
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.claude\skills\flowchart-generator"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/BoQin99/flowchart-generator-QB/main/SKILL.md" `
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/BoQin99/flowchart-generator/main/SKILL.md" `
   -OutFile "$env:USERPROFILE\.claude\skills\flowchart-generator\SKILL.md"
 ```
 
@@ -543,7 +543,7 @@ Remove-Item -Recurse -Force "$env:USERPROFILE\.claude\skills\flowchart-generator
 
 如果遇到其他问题：
 
-1. 查看 [GitHub Issues](https://github.com/BoQin99/flowchart-generator-QB/issues)
+1. 查看 [GitHub Issues](https://github.com/BoQin99/flowchart-generator/issues)
 2. 搜索类似问题
 3. 提交新的 Issue，请包含：
    - 操作系统及版本
